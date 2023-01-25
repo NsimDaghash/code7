@@ -1,5 +1,6 @@
 /*
 You Complete Me
+
 Task: concatenate one or more letters to the end of a given input string to create a string that reads the same forward as backward.
 
 Specifications
