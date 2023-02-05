@@ -24,17 +24,20 @@ Pairing happens from left to right. For each pairing, the second 0 will always b
 */
 
 function pairZeros(arr) {
-  let arr2=[];
-  for ( let i=0; i< arr.length;i++){
-    if(arr[i] == 0 ){
-      for (let j=i+1; j<arr.length;j++){
-        if ( arr[j]==0){
-          arr2 = arr.slice(0,j)+arr.slice(j+1,arr.length-1)
-          arr = arr2;
-          j=arr.length;
-        }
+  let arr2 = [];
+  let flag = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == 0) {
+      if (flag == 0) {
+        arr2.push(arr[i]);
+        flag = 1;
+      } else {
+        flag = 0;
       }
     }
+    if (arr[i] != 0) {
+      arr2.push(arr[i]);
+    }
   }
-  return arr
+  return arr2;
 }
