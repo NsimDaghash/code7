@@ -1,9 +1,22 @@
 function hasSurvived(attackers, defenders) {
-  let atl = 0;
-  let defl = 0;
+  let atl = attackers.length;
+  let defl = defenders.length;
+  let attckforce = 0,
+    defforce = 0;
   let atcount = 0,
     defcount = 0;
-  if (attackers.length > defenders.length) {
+  if (atl > defl) {
+    for (let i = defl + 1; i > atl; i++) {
+      defl.push(0);
+    }
+  }
+  if (defl == 0 && atl > 0) {
+    return false;
+  }
+  if (defl > 0 && atl == 0) {
+    return true;
+  }
+  if (attackers.length >= defenders.length) {
     for (let i = 0; i < defenders.length; i++) {
       if (attackers[i] > defenders[i]) {
         atcount++;
@@ -11,19 +24,26 @@ function hasSurvived(attackers, defenders) {
       if (attackers[i] < defenders[i]) {
         defcount++;
       }
-      atl = atl + attackers[i];
-      defl = defl + defenders[i];
+      attckforce = attckforce + attackers[i];
+      defforce = defforce + defenders[i];
     }
     if (defcount == atcount) {
-      if (atl > defl) {
+      if (attckforce > defforce) {
         return false;
       } else {
         return true;
       }
     } else {
-      atcount > defcount ? true : false;
+      return atcount > defcount ? false : true;
+    }
+  } else {
+    if (defcount > atcount) {
+      return true;
+    } else {
+      return atcount > defcount
+        ? false
+        :true;
     }
   }
 }
 
-console.log(hasSurvived([2, 9, 9, 7], [1, 1, 3, 8]));
