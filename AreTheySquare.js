@@ -20,15 +20,13 @@ is_square([]) --> None
 */
 
 var isSquare = function (arr) {
-  //Your code here  if (arr.length===0) return undefined;
-  //  return arr.every(v=>Math.sqrt(v).toString().length<=v.toString().length)
-  if (arr.length == 0) {
+  if (arr.length == 0){
     return undefined;
   }
-  for (let i = 0; i < arr.length; i++) {
-    if (Math.sqrt(arr[i]).toString().length != arr[i].toString.length) {
-      return false;
+  for( let i=0 ; i<arr.length;i++){
+    if ( Math.sqrt(arr[i])%1 !==0){
+      return false
     }
   }
-  return true;
+  return true
 };
