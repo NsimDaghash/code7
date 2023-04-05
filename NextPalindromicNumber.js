@@ -19,15 +19,12 @@ nextPal(2541) == 2552
 You will be receiving values higher than 10, all valid.
 */
 function nextPal(val) {
-  let flag = 1;
 
-  while (flag == 1) {
+  while (val){
     val++;
-    let tmp = val;
-    let nextPalindrome = tmp.toString().split("").reverse().join("");
-    if (val == nextPalindrome) {
-      flag = 0;
-    }
-  }
-  return val;
+    let nextPalindrome = (val.toString().split('').reverse().join(''));
+    if ( val ==  nextPalindrome){
+      return val;
+    }    
+  }  
 }
