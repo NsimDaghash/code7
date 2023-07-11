@@ -9,7 +9,7 @@ powerOf4(1024) // returns true
 powerOf4(44) // returns false
 powerOf4("not a positive integer") // returns false
 */
-function powerOf4(n) {
+function powerOf4(num) {
   if (typeof num !== "number" || num <= 0 || num % 1 !== 0) {
     return false;
   }
